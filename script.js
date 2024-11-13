@@ -15,48 +15,54 @@ const products = [
 
 const productSection = document.getElementById("products");
 
-// Check that the productSection exists in the DOM
-console.log("Product section:", productSection);
+// Ensure the productSection exists in the DOM
+if (productSection) {
+    console.log("Product section found:", productSection);
 
-// Loop through the products array
-products.forEach(product => {
-    console.log("Creating product:", product); // Debug: confirm each product is accessed
+    // Loop through the products array
+    products.forEach(product => {
+        console.log("Creating product:", product); // Debug: confirm each product is accessed
 
-    const productDiv = document.createElement("div");
-    productDiv.classList.add("product");
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
 
-    // Create the product structure with an image, name, description, and price
-    productDiv.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" class="product-image">
-        <h2>${product.name}</h2>
-        <p>${product.description}</p>
-        <p>Price: $${product.price}</p>
-        <button>Buy Now</button>
-    `;
+        // Create the product structure with an image container, name, description, and price
+        productDiv.innerHTML = `
+            <div class="product-image-container">
+                <img src="${product.image}" alt="${product.name}" class="product-image">
+            </div>
+            <h2>${product.name}</h2>
+            <p>${product.description}</p>
+            <p>Price: $${product.price}</p>
+            <button>Buy Now</button>
+        `;
 
-    // Add an event listener to the "Buy Now" button
-    productDiv.querySelector("button").addEventListener("click", () => {
-        console.log("Button clicked for:", product.name); // Debug: button click
+        // Add an event listener to the "Buy Now" button
+        productDiv.querySelector("button").addEventListener("click", () => {
+            console.log("Button clicked for:", product.name); // Debug: button click
 
-        // Send a message to Telegram when the button is clicked
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: `Product purchased: ${product.name} for $${product.price}`
+            // Send a message to Telegram when the button is clicked
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: `Product purchased: ${product.name} for $${product.price}`
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Message sent:', data); // Debug: confirm message sent
-            alert(`Order placed for ${product.name}! You will receive a notification.`);
-        })
-        .catch(error => console.error('Error:', error));
-    });
+            .then(response => response.json())
+            .then(data => {
+                console.log('Message sent:', data); // Debug: confirm message sent
+                alert(`Order placed for ${product.name}! You will receive a notification.`);
+            })
+            .catch(error => console.error('Error:', error));
+        });
 
-    // Append the product to the product section
-    productSection.appendChild(productDiv);
-});
+        // Append the product to the product section
+        productSection.appendChild(productDiv);
+    });
+} else {
+    console.error("Product section not found in the DOM.");
+}
