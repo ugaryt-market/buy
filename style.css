@@ -47,6 +47,12 @@ h1 {
     color: #333;
 }
 
+#company-logo {
+    width: 150px; /* Adjust width as needed */
+    height: auto;
+    margin-top: 20px;
+}
+
 /* Product descriptions */
 .product p {
     font-size: 1em;
