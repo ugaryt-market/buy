@@ -1,8 +1,8 @@
-fetch(`https://api.telegram.org/bot<your_bot_token>/sendMessage`, {
+fetch(`https://api.telegram.org/bot7566416998:AAFeeQplxMVsQ9tMpskOZl4uPuAnzsShbLc/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-        chat_id: "<your_chat_id>",
+        chat_id: "7228202401",
         text: `Product purchased: ${product.name} for $${product.price}`
     })
 });
