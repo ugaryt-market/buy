@@ -9,7 +9,12 @@ const products = [
 
 const productSection = document.getElementById("products");
 
+// Check that the productSection exists in the DOM
+console.log("Product section:", productSection);
+
 products.forEach(product => {
+    console.log("Creating product:", product); // Debug: confirm each product is accessed
+
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
     productDiv.innerHTML = `
@@ -21,6 +26,8 @@ products.forEach(product => {
 
     // Add an event listener to the "Buy Now" button
     productDiv.querySelector("button").addEventListener("click", () => {
+        console.log("Button clicked for:", product.name); // Debug: button click
+
         // Send a message to Telegram when the button is clicked
         fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: 'POST',
@@ -34,7 +41,7 @@ products.forEach(product => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Message sent:', data);
+            console.log('Message sent:', data); // Debug: confirm message sent
             alert(`Order placed for ${product.name}! You will receive a notification.`);
         })
         .catch(error => console.error('Error:', error));
