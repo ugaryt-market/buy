@@ -17,6 +17,15 @@ h1 {
     margin-top: 20px;
 }
 
+/* Logo styling */
+#company-logo {
+    width: 200px; /* Adjust to desired logo size */
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
 /* Product container styling */
 #products {
     display: grid;
@@ -50,7 +59,6 @@ h1 {
 /* Image container to enforce 1:1 aspect ratio */
 .product-image-container {
     width: 100%; /* Full width of product card */
-    height: 0;
     padding-top: 100%; /* Creates square aspect ratio */
     position: relative; /* Enables positioning of the image */
     overflow: hidden; /* Crops overflow if needed */
@@ -94,12 +102,4 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-/* Logo styling */
-#company-logo {
-    width: 400px;
-    height: auto;
-    margin-top: 30px;
-    border-radius: 10px;
 }
