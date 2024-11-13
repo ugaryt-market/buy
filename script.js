@@ -2,9 +2,15 @@ const botToken = '7566416998:AAFeeQplxMVsQ9tMpskOZl4uPuAnzsShbLc';
 const chatId = '7228202401';
 
 const products = [
-    { name: "Product 1", price: 10, description: "This is product 1" },
-    { name: "Product 2", price: 15, description: "This is product 2" },
-    { name: "Product 3", price: 20, description: "This is product 3" }
+    { name: "Product 1", price: 10, description: "This is product 1", image: "product1.jpg" },
+    { name: "Product 2", price: 15, description: "This is product 2", image: "product2.jpg" },
+    { name: "Product 3", price: 20, description: "This is product 3", image: "product3.jpg" },
+    { name: "Product 4", price: 25, description: "This is product 4", image: "product4.jpg" },
+    { name: "Product 5", price: 30, description: "This is product 5", image: "product5.jpg" },
+    { name: "Product 6", price: 35, description: "This is product 6", image: "product6.jpg" },
+    { name: "Product 7", price: 40, description: "This is product 7", image: "product7.jpg" },
+    { name: "Product 8", price: 45, description: "This is product 8", image: "product8.jpg" },
+    { name: "Product 9", price: 50, description: "This is product 9", image: "product9.jpg" }
 ];
 
 const productSection = document.getElementById("products");
@@ -12,12 +18,16 @@ const productSection = document.getElementById("products");
 // Check that the productSection exists in the DOM
 console.log("Product section:", productSection);
 
+// Loop through the products array
 products.forEach(product => {
     console.log("Creating product:", product); // Debug: confirm each product is accessed
 
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
+
+    // Create the product structure with an image, name, description, and price
     productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="product-image">
         <h2>${product.name}</h2>
         <p>${product.description}</p>
         <p>Price: $${product.price}</p>
@@ -47,5 +57,6 @@ products.forEach(product => {
         .catch(error => console.error('Error:', error));
     });
 
+    // Append the product to the product section
     productSection.appendChild(productDiv);
 });
