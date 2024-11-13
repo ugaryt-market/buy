@@ -3,14 +3,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 20px;
 }
 
-/* Heading styling */
+/* Header styling */
 h1 {
     font-size: 2em;
     color: #444;
@@ -19,23 +19,27 @@ h1 {
 
 /* Product container styling */
 #products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-gap: 20px;
+    max-width: 1200px;
     margin-top: 20px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Product card styling */
+/* Product styling */
 .product {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
-    width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: transform 0.2s ease;
 }
 
@@ -43,13 +47,21 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Product headings */
+/* Product image styling */
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product heading and text styling */
 .product h2 {
     font-size: 1.5em;
     color: #333;
+    margin-top: 10px;
 }
 
-/* Product description */
 .product p {
     font-size: 1em;
     color: #666;
@@ -72,10 +84,10 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Logo Styling */
+/* Logo styling */
 #company-logo {
-    width: 400px;  /* Adjust the width to make it larger */
+    width: 400px;
     height: auto;
     margin-top: 30px;
-    border-radius: 10px;  /* Optional: adds rounded corners to the logo */
+    border-radius: 10px;
 }
