@@ -7,15 +7,17 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
+    padding: 20px;
 }
 
+/* Heading styling */
 h1 {
-    margin-top: 20px;
     font-size: 2em;
     color: #444;
+    margin-top: 20px;
 }
 
-/* Container for products */
+/* Product container styling */
 #products {
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +27,7 @@ h1 {
     margin-top: 20px;
 }
 
-/* Product cards */
+/* Product card styling */
 .product {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -47,13 +49,7 @@ h1 {
     color: #333;
 }
 
-#company-logo {
-    width: 150px; /* Adjust width as needed */
-    height: auto;
-    margin-top: 20px;
-}
-
-/* Product descriptions */
+/* Product description */
 .product p {
     font-size: 1em;
     color: #666;
@@ -74,4 +70,12 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+/* Logo Styling */
+#company-logo {
+    width: 400px;  /* Adjust the width to make it larger */
+    height: auto;
+    margin-top: 30px;
+    border-radius: 10px;  /* Optional: adds rounded corners to the logo */
 }
